@@ -1,4 +1,4 @@
-## simple note taking typst templates
+## typst and rnote templates I use
 
-Heavily inspired by dogeystamp's templates, big thanks to them.
+the main typst template I use was heavily inspired on dogeystamp's.
 https://github.com/dogeystamp/typst-templates/
