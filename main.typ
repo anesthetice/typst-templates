@@ -1,10 +1,11 @@
 // heavily inspired by : https://github.com/dogeystamp/typst-templates/
-// thank you dogeystamp
-
 #let header-size = 22pt
 #let regular-size = 12pt
 
 #let font = "IBM Plex Serif"
+
+#let link-blue = rgb(40, 25, 90)
+#let footnote-blue = rgb(20, 30, 80)
 
 #let template(
   title: "",
@@ -36,7 +37,7 @@
   set heading(numbering: "1.", bookmarked: true)
   show heading: header => {
     header
-    v(weak: true, 0.75em)
+    v(weak: true, 1em)
   }
   set figure.caption(position: bottom)
   set figure(gap: 1em)
@@ -50,8 +51,12 @@
   }
   set list(indent: 15pt, body-indent: 5pt)
   set enum(indent: 15pt, body-indent: 5pt)
+  show link: it => underline(text(fill: link-blue)[#it])
+  show footnote: foot => {
+  text(fill: footnote-blue)[#foot]
+  }
+  show footnote.entry: set text(fill: footnote-blue)
 
-  
   pad(left: -2%, {
       text(size: header-size, weight: 550, title)
       v(10pt, weak: true)
@@ -70,3 +75,10 @@
   v(5%, weak: true)
   doc
 }
+
+#show: doc => template(
+  title: "Title",
+  subtitle: "Subtitle",
+  author: "Name",
+  doc
+)
